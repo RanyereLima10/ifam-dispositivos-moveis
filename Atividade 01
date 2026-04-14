@@ -1,2 +1,169 @@
+//Grupo: Ana Moser, David Yuri, Fabiano Batista e Joaquim Henrique
+
+App.js
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+
+
+export default function App() {
+  // Estados para as interações (Lógica do primeiro código)
+  const [nome, setNome] = useState('');
+  const [mensagemPersonalizada, setMensagemPersonalizada] = useState('Aguardando nome...');
+  const [frase, setFrase] = useState('"Nunca desista dos seus objetivos!"');
+
+
+  // Interação 1: Mostrar um Alerta (Requisito obrigatório)
+  const exibirAlerta = () => {
+    Alert.alert("Aviso", "Este é o alerta obrigatório do trabalho!");
+  };
+
+
+  // Interação 2: Mudar a frase (Requisito obrigatório)
+  const mudarFrase = () => {
+    setFrase('"A persistência é o caminho do êxito! ✨"');
+  };
+
+
+  // Interação 3: Gerar mensagem de boas-vindas (Exibir mensagem personalizada)
+  const gerarBoasVindas = () => {
+    if (nome === '') {
+      setMensagemPersonalizada('Por favor, digite seu nome!');
+    } else {
+      setMensagemPersonalizada('Olá, ' + nome + '! Bem-vindo ao meu app 👋');
+    }
+  };
+
+
+  return (
+    <View style={styles.container}>
+      {/* 1. Tela Principal: Informações Pessoais */}
+      <View style={styles.header}>
+        <Text style={styles.nomeAluno}>Seu Nome Aqui</Text>
+        <Text style={styles.curso}>Curso: Informática</Text>
+      </View>
+
+
+      {/* 1. Frase Motivacional (que muda com o botão) */}
+      <View style={styles.cardFrase}>
+        <Text style={styles.frase}>{frase}</Text>
+      </View>
+
+
+      {/* 2. Campo onde o usuário digita algo */}
+      <TextInput
+        style={styles.input}
+        placeholder="Digite seu nome"
+        placeholderTextColor="#aaa"
+        onChangeText={setNome}
+        value={nome}
+      />
+     
+      {/* 2. Exibir mensagem personalizada */}
+      <Text style={styles.resultado}>{mensagemPersonalizada}</Text>
+
+
+      {/* 3. Estilização: Botões visíveis e organizados */}
+      <View style={styles.areaBotoes}>
+        <TouchableOpacity style={styles.botaoMensagem} onPress={gerarBoasVindas}>
+          <Text style={styles.textoBotao}>Mostrar Mensagem</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.botaoMudar} onPress={mudarFrase}>
+          <Text style={styles.textoBotao}>Mudar Frase</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.botaoAlerta} onPress={exibirAlerta}>
+          <Text style={styles.textoBotao}>Exibir Alerta</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#1A1A2E', // Cor de fundo organizada
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 25,
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  nomeAluno: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#E94560',
+  },
+  curso: {
+    fontSize: 18,
+    color: '#FFF',
+    marginTop: 5,
+  },
+  cardFrase: {
+    backgroundColor: '#16213E',
+    padding: 20,
+    borderRadius: 12,
+    width: '100%',
+    marginBottom: 25,
+    borderWidth: 1,
+    borderColor: '#0F3460',
+  },
+  frase: {
+    fontSize: 16,
+    fontStyle: 'italic',
+    color: '#E0E0E0',
+    textAlign: 'center',
+  },
+  input: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  resultado: {
+    color: '#03DAC6',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 25,
+    textAlign: 'center',
+  },
+  areaBotoes: {
+    width: '100%',
+    gap: 12, // Espaço entre os botões
+  },
+  botaoMensagem: {
+    backgroundColor: '#4A90E2',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  botaoMudar: {
+    backgroundColor: '#28A745',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  botaoAlerta: {
+    backgroundColor: '#dc3545',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  textoBotao: {
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+//
 
 
