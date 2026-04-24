@@ -1,3 +1,6 @@
+
+--- FAVOR TIRAR O CÓDGIO. COLOQUE NA PASTA ATIVIDADE 01 --
+
 Alunos: Adnei Wesley, Rafael Glória.
 
 import React, { useState } from 'react';
