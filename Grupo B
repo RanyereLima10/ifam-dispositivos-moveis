@@ -1,5 +1,5 @@
 //Grupo B: Bruno, julio, Yuri e Cauã
-
+//TRABALHO 1° BIMESTRE
 import React, { useState } from &#39;react&#39;;
 import {
   View,
@@ -122,4 +122,136 @@ const styles = StyleSheet.create({
     color: &#39;blue&#39;,
     textAlign: &#39;center&#39;
   }
+});
+
+//ATIVIDADE 2° BIMESTRE
+//ATIVIDADE PRATICA I
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.texto}>Bem-vindo!</Text>
+      <Button title="Entrar" onPress={() => alert('Botão pressionado!')} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  texto: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+});
+
+//ATIVIDADE PRATICA II
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+
+export default function App() {
+  const [nome, setNome] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  const mostrarNome = () => {
+    if (nome.trim() === "") {
+      setMensagem("Digite um nome válido!");
+      return;
+    }
+
+    setMensagem(`Olá, ${nome}! Seja bem-vindo(a)!`);
+    setNome(""); // limpa o campo
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Digite seu nome:</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Nome"
+        value={nome}
+        onChangeText={setNome}
+      />
+
+      <Button title="Enviar" onPress={mostrarNome} />
+
+      <Text style={styles.resultado}>{mensagem}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20
+  },
+  titulo: {
+    fontSize: 18,
+    marginBottom: 10
+  },
+  input: {
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 10
+  },
+  resultado: {
+    fontSize: 18,
+    marginTop: 10
+  }
+});
+
+//ATIVIDADE PRATICA III
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+
+export default function App() {
+  const [nome, setNome] = useState("");
+
+  const validar = () => {
+    if (nome.trim() === "") {
+      Alert.alert("Erro", "Digite um nome!");
+    } else {
+      Alert.alert("Sucesso", `Bem-vindo, ${nome}!`);
+      setNome(""); // limpa o campo após sucesso
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Cadastro</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Digite seu nome"
+        value={nome}
+        onChangeText={setNome}
+      />
+
+      <Button title="Cadastrar" onPress={validar} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20
+  },
+  titulo: {
+    fontSize: 22,
+    marginBottom: 10
+  },
+  input: {
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 10
+  }
 });
