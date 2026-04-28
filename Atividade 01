@@ -20,7 +20,7 @@ export default function App() {
 
   // Interação 2: Mudar a frase (Requisito obrigatório)
   const mudarFrase = () => {
-    setFrase('"A persistência é o caminho do êxito! ✨"');
+    setFrase('"A persistência é o caminho do êxito! "');
   };
 
 
@@ -29,7 +29,7 @@ export default function App() {
     if (nome === '') {
       setMensagemPersonalizada('Por favor, digite seu nome!');
     } else {
-      setMensagemPersonalizada('Olá, ' + nome + '! Bem-vindo ao meu app 👋');
+      setMensagemPersonalizada('Olá, ' + nome + '! Bem-vindo ao meu app ');
     }
   };
 
