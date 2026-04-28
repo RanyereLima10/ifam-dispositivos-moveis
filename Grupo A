@@ -1,4 +1,4 @@
-Grupo A: Ana Moser, David Yuri, Fabiano Batista e Joaquim Henrique
+//Grupo A: Ana Moser, David Yuri, Fabiano Batista e Joaquim Henrique
 
 App.js
 import React, { useState } from 'react';
