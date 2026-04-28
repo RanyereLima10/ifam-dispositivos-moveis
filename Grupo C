@@ -1,1 +1,132 @@
 // Grupo C: Alunos: Jasmin,Luana, Laura e Walter
+
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Alert, Platform } from 'react-native';
+
+export default function App() {
+  const [nome, setNome] = useState('');
+  const [mensagem, setMensagem] = useState('Bem-vindo ao app!');
+
+  function mostrarMensagem() {
+    if (nome.trim() === '') {
+      setMensagem('Digite seu nome!');
+    } else {
+      setMensagem('Olá, ' + nome + '! Seja bem-vindo(a) ');
+    }
+  }
+
+  function mostrarAlerta() {
+    if (Platform.OS === 'web') {
+      // Para navegador
+      alert('Atenção! Esse é um alerta do aplicativo');
+    } else {
+      // Para celular/emulador
+      Alert.alert(
+        'Atenção!',
+        'Esse é um alerta do aplicativo',
+        [
+          { text: 'OK', onPress: () => console.log('OK pressionado') }
+        ]
+      );
+    }
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>
+        Meu Primeiro App
+      </Text>
+
+      <Text style={styles.texto}>
+        Nome do aluno: Jasmin Silva De Lima
+      </Text>
+
+      <Text style={styles.texto}>
+        Curso: Informatica
+      </Text>
+
+      <Text style={styles.frase}>
+        "Nunca desista dos seus objetivos!"
+      </Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Digite seu nome"
+        value={nome}
+        onChangeText={setNome}
+      />
+
+      <View style={styles.botao}>
+        <Button
+          title="Mostrar Mensagem"
+          onPress={mostrarMensagem}
+        />
+      </View>
+
+      <View style={styles.botao}>
+        <Button
+          title="Mostrar Alerta"
+          onPress={mostrarAlerta}
+        />
+      </View>
+
+      <Text style={styles.mensagem}>
+        {mensagem}
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F7FA', 
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+
+  titulo: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#2C3E50',
+    marginBottom: 10,
+  },
+
+  texto: {
+    fontSize: 16,
+    color: '#34495E',
+    marginBottom: 4,
+  },
+
+  frase: {
+    fontSize: 14,
+    fontStyle: 'italic',
+    color: '#7F8C8D',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+
+  input: {
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#DCDCDC',
+  },
+
+  botao: {
+    width: '100%',
+    marginBottom: 10,
+  },
+
+  mensagem: {
+    marginTop: 20,
+    fontSize: 16,
+    color: '#2C3E50',
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+});
