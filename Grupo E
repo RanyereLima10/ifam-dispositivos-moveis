@@ -1,1 +1,132 @@
+Alunos: Ed, Davi, Rian e Ralisson
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  Alert
+} from 'react-native';
 
+export default function App() {
+
+  const [nome, setNome] = useState('');
+  const [mensagem, setMensagem] = useState('Bem-vindo ao app!');
+  const [frase, setFrase] = useState('Nunca desista dos seus objetivos!');
+
+  function mostrarMensagem() {
+    if (nome === '') {
+      setMensagem('Digite seu nome!');
+    } else {
+      setMensagem(`Olá, ${nome}! Seja bem-vindo 👋`);
+    }
+  }
+
+  function mudarFrase() {
+    setFrase('O sucesso é a soma de pequenos esforços!');
+  }
+
+  function mostrarAlerta() {
+    Alert.alert('Aviso', 'Você clicou no botão!');
+  }
+
+  return (
+    <View style={styles.container}>
+
+      <Text style={styles.titulo}>
+        Meu Primeiro App
+      </Text>
+
+      <Text style={styles.texto}>
+        Nome do aluno: {nome}
+      </Text>
+
+      <Text style={styles.texto}>
+        Curso: Informática
+      </Text>
+
+      <Text style={styles.frase}>
+        "{frase}"
+      </Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Digite seu nome"
+        onChangeText={setNome}
+      />
+
+      <View style={styles.botao}>
+        <Button
+          title="Mostrar mensagem"
+          onPress={mostrarMensagem}
+          color="#4CAF50"
+        />
+      </View>
+
+      <View style={styles.botao}>
+        <Button
+          title="Mudar frase"
+          onPress={mudarFrase}
+          color="#2196F3"
+        />
+      </View>
+
+      <View style={styles.botao}>
+        <Button
+          title="Mostrar alerta"
+          onPress={mostrarAlerta}
+          color="#FF5722"
+        />
+      </View>
+
+      <Text style={styles.resultado}>
+        {mensagem}
+      </Text>
+
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#d9f0ff'
+  },
+  titulo: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    textAlign: 'center',
+    color: '#333'
+  },
+  texto: {
+    fontSize: 16,
+    marginBottom: 5,
+    textAlign: 'center'
+  },
+  frase: {
+    fontStyle: 'italic',
+    marginBottom: 15,
+    textAlign: 'center',
+    color: '#555'
+  },
+  input: {
+    borderWidth: 1,
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 8,
+    backgroundColor: '#fff'
+  },
+  botao: {
+    marginVertical: 5
+  },
+  resultado: {
+    marginTop: 20,
+    fontSize: 18,
+    color: 'blue',
+    textAlign: 'center'
+  }
+});
