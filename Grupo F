@@ -1,0 +1,258 @@
+\\Alunas Isabelle Duarte, Amanda Medeiros e Rakely de Souza
+Atividade 1° bimestre
+
+import React, { useState } from &#39;react&#39;;
+import {
+View,
+Text,
+TextInput,
+TouchableOpacity,
+Alert,
+StyleSheet,
+} from &#39;react-native&#39;;
+
+export default function App() {
+const [mensagem, setMensagem] = useState(&#39;Às pessoas que olham para as estrelas e
+desejam&#39;);
+const [nomeDigitado, setNomeDigitado] = useState(&#39;&#39;);
+const [mensagemPersonalizada, setMensagemPersonalizada] = useState(&#39;&#39;);
+
+function mudarMensagem() {
+setMensagem(&#39;Às estrelas que ouvem e aos sonhos que são atendidos&#39;);
+}
+
+function mostrarAlerta() {
+Alert.alert(&#39;Aviso&#39;, &#39;Você clicou no botão! &#39;);
+}
+
+function mostrarMensagemPersonalizada() {
+setMensagemPersonalizada(`Olá, ${nomeDigitado}! Tudo bem?`);
+}
+
+return (
+&lt;View style={styles.container}&gt;
+&lt;View style={styles.card}&gt;
+&lt;Text style={styles.nome}&gt;Isabelle Duarte&lt;/Text&gt;
+&lt;Text style={styles.curso}&gt;Curso: Informática&lt;/Text&gt;
+
+&lt;Text style={styles.mensagem}&gt;{mensagem}&lt;/Text&gt;
+
+&lt;TouchableOpacity style={styles.botao} onPress={mudarMensagem}&gt;
+&lt;Text style={styles.botaoTexto}&gt;Mudar mensagem&lt;/Text&gt;
+&lt;/TouchableOpacity&gt;
+
+&lt;TouchableOpacity
+style={styles.botaoSecundario}
+onPress={mostrarAlerta}&gt;
+&lt;Text style={styles.botaoTexto}&gt;Mostrar alerta&lt;/Text&gt;
+&lt;/TouchableOpacity&gt;
+
+&lt;TextInput
+style={styles.input}
+placeholder=&quot;Digite seu nome...&quot;
+placeholderTextColor=&quot;#999&quot;
+
+onChangeText={setNomeDigitado}
+/&gt;
+
+&lt;TouchableOpacity
+style={styles.botao}
+onPress={mostrarMensagemPersonalizada}&gt;
+&lt;Text style={styles.botaoTexto}&gt;Mensagem personalizada&lt;/Text&gt;
+&lt;/TouchableOpacity&gt;
+
+&lt;Text style={styles.resultado}&gt;{mensagemPersonalizada}&lt;/Text&gt;
+&lt;/View&gt;
+&lt;/View&gt;
+);
+}
+
+const styles = StyleSheet.create({
+container: {
+flex: 1,
+backgroundColor: &#39;#f3e8ff&#39;,
+justifyContent: &#39;center&#39;,
+alignItems: &#39;center&#39;,
+},
+
+card: {
+width: &#39;90%&#39;,
+backgroundColor: &#39;#ffffff&#39;,
+
+padding: 25,
+borderRadius: 20,
+alignItems: &#39;center&#39;,
+shadowColor: &#39;#7b2cbf&#39;,
+shadowOpacity: 0.2,
+shadowRadius: 10,
+elevation: 5,
+},
+
+nome: {
+fontSize: 24,
+fontWeight: &#39;bold&#39;,
+color: &#39;#5a189a&#39;,
+marginBottom: 5,
+},
+
+curso: {
+fontSize: 16,
+color: &#39;#7b2cbf&#39;,
+marginBottom: 15,
+},
+
+mensagem: {
+fontSize: 16,
+textAlign: &#39;center&#39;,
+marginBottom: 15,
+
+color: &#39;#333&#39;,
+},
+
+botao: {
+backgroundColor: &#39;#7b2cbf&#39;,
+padding: 12,
+borderRadius: 12,
+width: &#39;100%&#39;,
+alignItems: &#39;center&#39;,
+marginTop: 10,
+},
+
+botaoSecundario: {
+backgroundColor: &#39;#9d4edd&#39;,
+padding: 12,
+borderRadius: 12,
+width: &#39;100%&#39;,
+alignItems: &#39;center&#39;,
+marginTop: 10,
+},
+
+botaoTexto: {
+color: &#39;#fff&#39;,
+fontWeight: &#39;bold&#39;,
+},
+
+input: {
+width: &#39;100%&#39;,
+borderWidth: 1,
+borderColor: &#39;#ddd&#39;,
+padding: 12,
+borderRadius: 12,
+marginTop: 15,
+backgroundColor: &#39;#fafafa&#39;,
+},
+
+resultado: {
+marginTop: 15,
+fontSize: 16,
+fontWeight: &#39;bold&#39;,
+color: &#39;#5a189a&#39;,
+textAlign: &#39;center&#39;,
+},
+});
+
+
+
+
+ATIVIDADE 2. PERFIL DO ALUNO
+
+
+import React, { useState } from &#39;react&#39;;
+import { View, Text, Image, TouchableOpacity, StyleSheet } from &#39;react-native&#39;;
+
+export default function App() {
+
+const [mensagem, setMensagem] = useState(&quot;&quot;);
+
+function mostrarMensagem() {
+setMensagem(&quot;Bem-vindo ao meu aplicativo!\nOlá, somos estudantes de tecnologia&quot;);
+}
+
+return (
+&lt;View style={styles.container}&gt;
+
+&lt;View style={styles.card}&gt;
+
+&lt;Text style={styles.titulo}&gt;Isabelle Duarte, Rakely de Souza e Amanda Medeiros
+&lt;/Text&gt;
+&lt;Text style={styles.curso}&gt;Curso: Informática&lt;/Text&gt;
+
+&lt;Image
+source={{ uri: &quot;https://cdn-icons-png.flaticon.com/512/847/847969.png&quot; }}
+style={styles.imagem}
+/&gt;
+
+&lt;TouchableOpacity style={styles.botao} onPress={mostrarMensagem}&gt;
+&lt;Text style={styles.botaoTexto}&gt;Mostrar mensagem&lt;/Text&gt;
+&lt;/TouchableOpacity&gt;
+
+&lt;Text style={styles.mensagem}&gt;{mensagem}&lt;/Text&gt;
+
+&lt;/View&gt;
+
+&lt;/View&gt;
+);
+}
+
+const styles = StyleSheet.create({
+
+container: {
+flex: 1,
+backgroundColor: &#39;#f3e8ff&#39;,
+justifyContent: &#39;center&#39;,
+alignItems: &#39;center&#39;
+},
+
+card: {
+width: &#39;85%&#39;,
+backgroundColor: &#39;#ffffff&#39;,
+padding: 25,
+
+borderRadius: 20,
+alignItems: &#39;center&#39;,
+shadowColor: &#39;#7b2cbf&#39;,
+shadowOpacity: 0.2,
+shadowRadius: 10,
+elevation: 5
+},
+
+titulo: {
+fontSize: 16,
+fontWeight: &#39;bold&#39;,
+color: &#39;#5a189a&#39;,
+marginBottom: 5
+},
+
+curso: {
+fontSize: 16,
+color: &#39;#7b2cbf&#39;,
+marginBottom: 15
+},
+
+imagem: {
+width: 120,
+height: 120,
+marginBottom: 20
+},
+
+botao: {
+backgroundColor: &#39;#7b2cbf&#39;,
+padding: 12,
+borderRadius: 12,
+width: &#39;100%&#39;,
+alignItems: &#39;center&#39;
+},
+
+botaoTexto: {
+color: &#39;#fff&#39;,
+fontWeight: &#39;bold&#39;
+},
+
+mensagem: {
+marginTop: 20,
+fontSize: 16,
+textAlign: &#39;center&#39;,
+color: &#39;#333&#39;
+}
+
+});
